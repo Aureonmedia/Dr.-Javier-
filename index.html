@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lic. Javier Mariscal | Psicoanálisis & Neurociencia</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        noche: '#0B132B',
+                        clinico: '#1C2D42',
+                        marfil: '#F8F9FA',
+                        ambar: {
+                            DEFAULT: '#C27803',
+                            hover: '#D97706'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-marfil text-noche font-sans antialiased selection:bg-ambar selection:text-white flex flex-col min-h-screen">
+
+    <!-- Navegación Superior -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-marfil/90 backdrop-blur-md border-b border-noche/10 transition-all">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="switchPage('inicio')">
+                <div class="w-10 h-10 rounded-lg bg-noche flex items-center justify-center text-marfil shadow-md">
+                    <i class="fa-solid fa-brain text-amber text-lg"></i>
+                </div>
+                <div>
+                    <span class="block text-base font-bold tracking-wider font-serif uppercase">Javier Mariscal</span>
+                    <span class="block text-[10px] uppercase tracking-widest text-noche/60 font-semibold">Psicoanálisis & Neurociencia</span>
+                </div>
+            </div>
+            <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium text-noche/80">
+                <button onclick="switchPage('inicio')" id="nav-inicio" class="nav-link transition-colors text-ambar font-semibold">Inicio</button>
+                <button onclick="switchPage('quien-soy')" id="nav-quien-soy" class="nav-link transition-colors hover:text-ambar">Quién soy</button>
+                <button onclick="switchPage('servicios')" id="nav-servicios" class="nav-link transition-colors hover:text-ambar">Servicios</button>
+                <button onclick="switchPage('contacto-page')" id="nav-contacto-page" class="nav-link transition-colors hover:text-ambar">Contacto</button>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <button onclick="switchPage('contacto-page')" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-lg bg-ambar hover:bg-ambar-hover text-white text-sm font-semibold transition-all shadow-md shadow-ambar/20">
+                    Agendar Sesión
+                </button>
+                <button id="menu-btn" class="lg:hidden text-noche focus:outline-none p-2">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Menú Móvil -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-marfil border-b border-noche/10 px-6 py-4 space-y-3 shadow-xl">
+            <button onclick="switchPage('inicio'); toggleMobileMenu();" class="block w-full text-left text-noche hover:text-ambar py-2 font-medium">Inicio</button>
+            <button onclick="switchPage('quien-soy'); toggleMobileMenu();" class="block w-full text-left text-noche hover:text-ambar py-2 font-medium">Quién soy</button>
+            <button onclick="switchPage('servicios'); toggleMobileMenu();" class="block w-full text-left text-noche hover:text-ambar py-2 font-medium">Servicios</button>
+            <button onclick="switchPage('contacto-page'); toggleMobileMenu();" class="block w-full text-left text-noche hover:text-ambar py-2 font-medium">Contacto</button>
+            <button onclick="switchPage('contacto-page'); toggleMobileMenu();" class="block w-full text-center mt-2 px-5 py-2.5 rounded-lg bg-ambar text-white font-semibold">Agendar Sesión</button>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-20">
+
+        <!-- ================= SECCIÓN: INICIO ================= -->
+        <div id="page-inicio" class="page-view animate-fade">
+            <section class="relative pt-16 pb-24 lg:pt-32 lg:pb-36 bg-gradient-to-b from-marfil to-[#EFEFEF] overflow-hidden">
+                <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-7 space-y-8">
+                        <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-md bg-clinico/5 border border-clinico/10 text-clinico text-xs font-semibold uppercase tracking-wider">
+                            <i class="fa-solid fa-microscope text-ambar"></i>
+                            <span>Enfoque Clínico Especializado</span>
+                        </div>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-noche leading-[1.1]">
+                            Compréndete con rigor. Transforma tu estructura psíquica con fundamento neuroanalítico.
+                        </h1>
+                        <p class="text-lg text-noche/70 font-normal leading-relaxed max-w-2xl">
+                            Un espacio psicoterapéutico riguroso que integra la profundidad del psicoanálisis contemporáneo con la precisión de la neurociencia clínica para abordar el sufrimiento psíquico complejo.
+                        </p>
+                        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+                            <button onclick="switchPage('contacto-page')" class="px-8 py-4 rounded-lg bg-ambar hover:bg-ambar-hover text-white font-semibold shadow-lg shadow-ambar/25 transition-all text-center">
+                                Iniciar Proceso Clínico
+                            </button>
+                            <button onclick="switchPage('quien-soy')" class="px-8 py-4 rounded-lg bg-transparent hover:bg-noche/5 text-noche font-semibold border border-noche/20 transition-all text-center">
+                                Conocer el Enfoque
+                            </button>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5 relative">
+                        <div class="relative mx-auto max-w-md lg:max-w-none">
+                            <div class="absolute -inset-4 bg-clinico/10 rounded-2xl transform rotate-2"></div>
+                            <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-noche/10 bg-clinico aspect-[4/5]">
+                                <img src="assets/javier-mariscal.svg" alt="Lic. Javier Mariscal" class="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 transition-all duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-noche/90 via-transparent to-transparent flex items-end p-6">
+                                    <div class="text-white">
+                                        <p class="font-serif text-xl font-bold">Lic. Javier Mariscal</p>
+                                        <p class="text-xs text-marfil/80 tracking-wide mt-1">Psicoanálisis & Neurociencia Clínica</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pilares del Enfoque -->
+            <section class="py-24 bg-noche text-white relative">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="text-center max-w-3xl mx-auto mb-16">
+                        <span class="text-xs font-bold uppercase tracking-widest text-ambar">Fundamentos Teóricos y Clínicos</span>
+                        <h2 class="text-3xl sm:text-4xl font-serif font-bold mt-2">¿Qué es el Neuroanálisis?</h2>
+                        <p class="mt-4 text-marfil/70 text-base">La convergencia entre la escucha profunda del sujeto y la comprensión de los correlatos neurobiológicos de la experiencia.</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="p-8 rounded-xl bg-clinico/50 border border-white/10 hover:border-ambar/50 transition-all group">
+                            <div class="w-12 h-12 rounded-lg bg-ambar/20 flex items-center justify-center text-ambar text-xl mb-6 group-hover:scale-105 transition-transform">
+                                <i class="fa-solid fa-network-wired"></i>
+                            </div>
+                            <h3 class="text-xl font-serif font-bold text-white mb-3">Lectura Inconsciente</h3>
+                            <p class="text-marfil/70 text-sm leading-relaxed">Abordaje profundo de los conflictos reprimidos y patrones vinculares arraigados que operan fuera de la conciencia inmediata.</p>
+                        </div>
+                        <div class="p-8 rounded-xl bg-clinico/50 border border-white/10 hover:border-ambar/50 transition-all group">
+                            <div class="w-12 h-12 rounded-lg bg-ambar/20 flex items-center justify-center text-ambar text-xl mb-6 group-hover:scale-105 transition-transform">
+                                <i class="fa-solid fa-brain"></i>
+                            </div>
+                            <h3 class="text-xl font-serif font-bold text-white mb-3">Plasticidad y Estructura</h3>
+                            <p class="text-marfil/70 text-sm leading-relaxed">Comprensión de cómo los circuitos neuronales condicionan la respuesta emocional y cómo la terapia modifica la arquitectura cerebral.</p>
+                        </div>
+                        <div class="p-8 rounded-xl bg-clinico/50 border border-white/10 hover:border-ambar/50 transition-all group">
+                            <div class="w-12 h-12 rounded-lg bg-ambar/20 flex items-center justify-center text-ambar text-xl mb-6 group-hover:scale-105 transition-transform">
+                                <i class="fa-solid fa-scale-balanced"></i>
+                            </div>
+                            <h3 class="text-xl font-serif font-bold text-white mb-3">Rigor Metodológico</h3>
+                            <p class="text-marfil/70 text-sm leading-relaxed">Un encuadre clínico estructurado, ético y basado en evidencia empírica y psicoanalítica contrastada.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= SECCIÓN: QUIEN SOY ================= -->
+        <div id="page-quien-soy" class="page-view hidden animate-fade">
+            <section class="py-20 lg:py-28 bg-marfil">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="text-center max-w-3xl mx-auto mb-16">
+                        <span class="text-xs font-bold uppercase tracking-widest text-ambar">Trayectoria y Credenciales</span>
+                        <h2 class="text-3xl sm:text-5xl font-serif font-bold mt-2 text-noche">El Clínico: Lic. Javier Mariscal</h2>
+                        <p class="mt-4 text-noche/70 text-base">Rigurosidad académica, ética profesional y compromiso absoluto con la salud mental profunda.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
+                        <div class="lg:col-span-5">
+                            <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-noche/10 bg-clinico aspect-[4/5]">
+                                <img src="assets/javier-mariscal.svg" alt="Lic. Javier Mariscal" class="w-full h-full object-cover grayscale contrast-125">
+                            </div>
+                        </div>
+                        <div class="lg:col-span-7 space-y-6">
+                            <h3 class="text-2xl sm:text-3xl font-serif font-bold text-noche">"Comprender el sufrimiento humano requiere tanto de la escucha analítica como de la precisión neurocientífica."</h3>
+                            <p class="text-noche/70 text-base leading-relaxed">
+                                Psicoterapeuta clínico especializado en la intersección entre la teoría psicoanalítica estructural y la neurociencia contemporánea. Mi práctica se fundamenta en el respeto radical al sujeto, la confidencialidad absoluta y la búsqueda de resultados clínicos medibles y duraderos.
+                            </p>
+                            <div class="space-y-3 pt-2">
+                                <div class="flex items-center space-x-3">
+                                    <i class="fa-solid fa-check text-ambar"></i>
+                                    <span class="text-sm text-noche/80 font-medium">Especialización en Psicoanálisis Contemporáneo.</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <i class="fa-solid fa-check text-ambar"></i>
+                                    <span class="text-sm text-noche/80 font-medium">Formación avanzada en Neurociencia Clínica y Cognitiva.</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <i class="fa-solid fa-check text-ambar"></i>
+                                    <span class="text-sm text-noche/80 font-medium">Amplia experiencia en práctica clínica privada e institucional.</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <i class="fa-solid fa-check text-ambar"></i>
+                                    <span class="text-sm text-noche/80 font-medium">Supervisión clínica constante y actualización empírica.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Credenciales -->
+                    <div class="bg-clinico text-white p-10 rounded-2xl shadow-xl grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div>
+                            <span class="text-ambar text-sm font-bold uppercase tracking-wider block mb-2">Formación Base</span>
+                            <h4 class="font-bold text-lg mb-1">Licenciatura en Psicología Clínica</h4>
+                            <p class="text-xs text-marfil/70 leading-relaxed">Enfoque riguroso centrado en psicopatología, diagnóstico estructural y clínica analítica.</p>
+                        </div>
+                        <div>
+                            <span class="text-ambar text-sm font-bold uppercase tracking-wider block mb-2">Especialización</span>
+                            <h4 class="font-bold text-lg mb-1">Postgrado en Neurociencia Cognitiva</h4>
+                            <p class="text-xs text-marfil/70 leading-relaxed">Investigación avanzada de funciones ejecutivas, neuroplasticidad y correlatos biológicos del afecto.</p>
+                        </div>
+                        <div>
+                            <span class="text-ambar text-sm font-bold uppercase tracking-wider block mb-2">Membresía</span>
+                            <h4 class="font-bold text-lg mb-1">Sociedades Clínicas Titulares</h4>
+                            <p class="text-xs text-marfil/70 leading-relaxed">Participación activa en comités de estudio psicoanalítico y actualización psiquiátrica.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= SECCIÓN: SERVICIOS ================= -->
+        <div id="page-servicios" class="page-view hidden animate-fade">
+            <section class="py-20 lg:py-28 bg-marfil">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="text-center max-w-3xl mx-auto mb-16">
+                        <span class="text-xs font-bold uppercase tracking-widest text-ambar">Dominios de Atención Clínica</span>
+                        <h2 class="text-3xl sm:text-5xl font-serif font-bold mt-2 text-noche">Áreas de Especialización</h2>
+                        <p class="mt-4 text-noche/70 text-base">Abordaje sistemático de patologías y malestares estructurales contemporáneos.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+                        <div class="p-8 rounded-xl bg-white border border-noche/10 shadow-sm hover:shadow-md transition-all">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <div class="w-10 h-10 rounded-lg bg-clinico/10 text-clinico flex items-center justify-center font-bold">
+                                    <i class="fa-solid fa-brain text-ambar"></i>
+                                </div>
+                                <h3 class="text-xl font-serif font-bold text-noche">Trastornos de Ansiedad y Pánico</h3>
+                            </div>
+                            <p class="text-noche/70 text-sm leading-relaxed">Regulación de los estados de hiperactivación simpática, angustia difusa y sintomatología somática persistente con encuadre clínico.</p>
+                        </div>
+                        <div class="p-8 rounded-xl bg-white border border-noche/10 shadow-sm hover:shadow-md transition-all">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <div class="w-10 h-10 rounded-lg bg-clinico/10 text-clinico flex items-center justify-center font-bold">
+                                    <i class="fa-solid fa-chart-line text-ambar"></i>
+                                </div>
+                                <h3 class="text-xl font-serif font-bold text-noche">Regulación del Estado de Ánimo</h3>
+                            </div>
+                            <p class="text-noche/70 text-sm leading-relaxed">Tratamiento clínico de episodios depresivos, distimia crónica, apatía y pérdida de sentido vital mediante elaboración psíquica.</p>
+                        </div>
+                        <div class="p-8 rounded-xl bg-white border border-noche/10 shadow-sm hover:shadow-md transition-all">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <div class="w-10 h-10 rounded-lg bg-clinico/10 text-clinico flex items-center justify-center font-bold">
+                                    <i class="fa-solid fa-microscope text-ambar"></i>
+                                </div>
+                                <h3 class="text-xl font-serif font-bold text-noche">Evaluación Neurocognitiva</h3>
+                            </div>
+                            <p class="text-noche/70 text-sm leading-relaxed">Análisis riguroso de funciones ejecutivas, dificultades atencionales y declive cognitivo asociado al estrés crónico o condiciones específicas.</p>
+                        </div>
+                        <div class="p-8 rounded-xl bg-white border border-noche/10 shadow-sm hover:shadow-md transition-all">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <div class="w-10 h-10 rounded-lg bg-clinico/10 text-clinico flex items-center justify-center font-bold">
+                                    <i class="fa-solid fa-users text-ambar"></i>
+                                </div>
+                                <h3 class="text-xl font-serif font-bold text-noche">Patología de los Vínculos y Pareja</h3>
+                            </div>
+                            <p class="text-noche/70 text-sm leading-relaxed">Deconstrucción de dinámicas relacionales disfuncionales, dependencia afectiva y duelos complejos no elaborados.</p>
+                        </div>
+                    </div>
+
+                    <!-- Proceso Clínico -->
+                    <div class="bg-white border border-noche/10 rounded-2xl p-10 shadow-lg">
+                        <div class="text-center max-w-2xl mx-auto mb-12">
+                            <span class="text-xs font-bold uppercase tracking-widest text-ambar">Proceso Terapéutico</span>
+                            <h3 class="text-2xl sm:text-3xl font-serif font-bold mt-2 text-noche">La Ruta del Paciente</h3>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div class="p-6 rounded-xl bg-marfil border border-noche/10 relative">
+                                <div class="w-10 h-10 rounded-lg bg-ambar/20 text-ambar flex items-center justify-center mb-4 font-bold">
+                                    <i class="fa-solid fa-file-lines"></i>
+                                </div>
+                                <h4 class="font-serif font-bold text-lg text-noche mb-2">Admisión y Entrevista</h4>
+                                <p class="text-noche/70 text-xs leading-relaxed">Primera sesión orientada a delimitar el motivo de consulta actual, historia clínica y evaluación inicial de la estructura psíquica.</p>
+                            </div>
+                            <div class="p-6 rounded-xl bg-marfil border border-noche/10 relative">
+                                <div class="w-10 h-10 rounded-lg bg-ambar/20 text-ambar flex items-center justify-center mb-4 font-bold">
+                                    <i class="fa-solid fa-handshake"></i>
+                                </div>
+                                <h4 class="font-serif font-bold text-lg text-noche mb-2">Definición del Encuadre</h4>
+                                <p class="text-noche/70 text-xs leading-relaxed">Establecimiento conjunto de los objetivos terapéuticos, frecuencia de las sesiones y acuerdo sobre el marco de trabajo clínico.</p>
+                            </div>
+                            <div class="p-6 rounded-xl bg-marfil border border-noche/10 relative">
+                                <div class="w-10 h-10 rounded-lg bg-ambar/20 text-ambar flex items-center justify-center mb-4 font-bold">
+                                    <i class="fa-solid fa-seedling"></i>
+                                </div>
+                                <h4 class="font-serif font-bold text-lg text-noche mb-2">Proceso Analítico</h4>
+                                <p class="text-noche/70 text-xs leading-relaxed">Espacio de profundización sistemática y elaboración psíquica orientada a la resolución del síntoma y la reestructuración.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= SECCIÓN: CONTACTO & FAQ ================= -->
+        <div id="page-contacto-page" class="page-view hidden animate-fade">
+            <section class="py-20 lg:py-28 bg-noche text-white">
+                <div class="max-w-4xl mx-auto px-6 text-center">
+                    <span class="text-xs font-bold uppercase tracking-widest text-ambar">Admisión Abierta</span>
+                    <h2 class="text-3xl sm:text-5xl font-serif font-bold mt-2 mb-4">Comience su proceso de transformación analítica hoy.</h2>
+                    <p class="text-marfil/70 text-base max-w-xl mx-auto mb-10">Dé el primer paso hacia la comprensión profunda de su malestar. Agende una entrevista preliminar de evaluación.</p>
+                    
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+                        <a href="https://wa.me/" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-lg bg-ambar hover:bg-ambar-hover text-white font-semibold shadow-lg shadow-ambar/25 transition-all flex items-center justify-center space-x-3">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                            <span>Agendar Sesión por WhatsApp</span>
+                        </a>
+                        <a href="mailto:contacto@javiermariscal.com" class="w-full sm:w-auto px-8 py-4 rounded-lg bg-clinico/50 hover:bg-clinico text-marfil font-semibold border border-white/10 transition-all flex items-center justify-center space-x-3">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>Enviar Correo de Consulta</span>
+                        </a>
+                    </div>
+
+                    <!-- FAQ -->
+                    <div class="text-left bg-clinico/30 border border-white/10 p-8 rounded-2xl space-y-6">
+                        <h3 class="font-serif font-bold text-2xl text-white text-center mb-6">Preguntas Frecuentes</h3>
+                        <div>
+                            <h4 class="font-serif font-bold text-lg text-white mb-1">¿Cuál es la duración de cada sesión clínica?</h4>
+                            <p class="text-marfil/70 text-sm leading-relaxed">Las sesiones tienen una duración estandarizada de 50 minutos, manteniendo un encuadre temporal firme y predecible.</p>
+                        </div>
+                        <div class="border-t border-white/10 pt-4">
+                            <h4 class="font-serif font-bold text-lg text-white mb-1">¿Las sesiones son presenciales o en modalidad online?</h4>
+                            <p class="text-marfil/70 text-sm leading-relaxed">Se ofrece atención clínica tanto en formato presencial en consultorio privado como en modalidad online segura.</p>
+                        </div>
+                        <div class="border-t border-white/10 pt-4">
+                            <h4 class="font-serif font-bold text-lg text-white mb-1">¿Cómo se maneja la confidencialidad?</h4>
+                            <p class="text-marfil/70 text-sm leading-relaxed">El ejercicio profesional se rige por el secreto clínico estricto y la protección de datos de salud.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <footer class="bg-[#070D1D] text-white/50 py-12 border-t border-white/10 text-xs">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+                <span class="font-serif font-bold text-white text-sm">Lic. Javier Mariscal</span>
+                <span class="block mt-1">Psicoanálisis y Neurociencia Clínica. Todos los derechos reservados.</span>
+            </div>
+            <div class="flex space-x-6">
+                <button onclick="switchPage('inicio')" class="hover:text-ambar transition-colors">Volver arriba</button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script de Navegación Dinámica -->
+    <script>
+        function switchPage(pageId) {
+            const pages = document.querySelectorAll('.page-view');
+            pages.forEach(p => p.classList.add('hidden'));
+
+            const targetPage = document.getElementById('page-' + pageId);
+            if (targetPage) {
+                targetPage.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            const navButtons = document.querySelectorAll('.nav-link');
+            navButtons.forEach(btn => {
+                btn.classList.remove('text-ambar', 'font-semibold');
+                btn.classList.add('hover:text-ambar');
+            });
+
+            const activeNav = document.getElementById('nav-' + pageId);
+            if (activeNav) {
+                activeNav.classList.add('text-ambar', 'font-semibold');
+                activeNav.classList.remove('hover:text-ambar');
+            }
+        }
+
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        menuBtn.addEventListener('click', toggleMobileMenu);
+    </script>
+</body>
+</html>
